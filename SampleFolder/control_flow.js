@@ -11,6 +11,20 @@ let isAuthenticated = true;
 
 let authenticationStatus = isAuthenticated ? "Authenticated" : "Not authenticated";
 
+const role = prompt("Enter your role (Employee, Enrolled Member, Subscriber, Non-Subscriber):");
+
+if (role && role.trim() === 'Employee') {
+    console.log("You are authorized to have full access to 'Dietary Services'.");
+} else if (role && role.trim() === 'Enrolled Member') {
+    console.log("You are authorized to have full access to 'Dietary Services' and one-on-one interaction with a dietician.");
+} else if (role && role.trim() === 'Subscriber') {
+    console.log("You are authorized to have partial access to 'Dietary Services'.");
+} else if (role && role.trim() === 'Non-Subscriber') {
+    console.log("You need to enroll or subscribe first to avail 'Dietary Services'.");
+} else {
+    console.log("Invalid role. Please provide a valid role (Employee, Enrolled Member, Subscriber, Non-Subscriber).");
+}
+
 
 switch (userType) {
     case "admin":
