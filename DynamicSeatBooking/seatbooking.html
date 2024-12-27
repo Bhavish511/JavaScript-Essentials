@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seating Chart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .message {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .seating-chart {
+      display: grid;
+      grid-template-columns: repeat(3, 80px);
+      gap: 10px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+
+    .seat {
+      width: 80px;
+      height: 50px;
+      line-height: 50px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .seat.available {
+      background-color: #4CAF50; /* Green */
+      color: white;
+    }
+
+    .seat.booked {
+      background-color: #F44336; /* Red */
+      color: white;
+      cursor: not-allowed;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .action-button {
+      width: calc(3 * 80px + 20px); /* Matches the width of three seats plus gaps */
+      height: 50px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2196F3; /* Blue */
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .reset-button {
+      background-color: #FF5722; /* Orange */
+    }
+
+    .action-button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Movie Theater Seating Chart</h1>
+    <div id="message" class="message">Welcome! Please select a seat.</div>
+    <div id="seating-chart" class="seating-chart">
+      <div class="seat available" onclick="bookSeat(0, 0)">A1</div>
+      <div class="seat available" onclick="bookSeat(0, 1)">A2</div>
+      <div class="seat available" onclick="bookSeat(0, 2)">A3</div>
+      <div class="seat available" onclick="bookSeat(1, 0)">B1</div>
+      <div class="seat available" onclick="bookSeat(1, 1)">B2</div>
+      <div class="seat available" onclick="bookSeat(1, 2)">B3</div>
+      <div class="seat available" onclick="bookSeat(2, 0)">C1</div>
+      <div class="seat available" onclick="bookSeat(2, 1)">C2</div>
+      <div class="seat available" onclick="bookSeat(2, 2)">C3</div>
+    </div>
+    <div class="button-container">
+      <button class="action-button" onclick="selectRandomSeat()">Select Random Seat</button>
+      <button class="action-button reset-button" onclick="resetSeats()">Reset</button>
+    </div>
+  </div>
+  <script src="seatbooking.js"></script>
+</body>
+</html>
