@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seating Chart</title>
+  <title>Enhanced Seating Chart</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,47 +12,59 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background-color: #f4f4f4;
+      background-color: #f0f8ff;
     }
 
     .container {
       text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
-      margin-bottom: 10px;
-      font-size: 24px;
+      margin-bottom: 20px;
+      font-size: 30px;
       color: #333;
+      font-weight: bold;
     }
 
     .message {
-      margin-bottom: 20px;
-      font-size: 16px;
+      margin-bottom: 30px;
+      font-size: 18px;
       color: #555;
+      font-style: italic;
     }
 
     .seating-chart {
       display: grid;
-      grid-template-columns: repeat(3, 80px);
-      gap: 10px;
-      margin-bottom: 20px;
+      grid-template-columns: repeat(3, 150px); /* Larger seat width */
+      gap: 20px; /* More spacing between seats */
+      margin-bottom: 30px;
       justify-content: center;
     }
 
     .seat {
-      width: 80px;
-      height: 50px;
-      line-height: 50px;
-      border: 2px solid #ccc;
-      border-radius: 5px;
+      width: 150px; /* Increased seat width */
+      height: 100px; /* Increased seat height */
+      line-height: 100px; /* Match height for vertical centering */
+      border: 3px solid #ccc;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 20px; /* Larger font size */
       text-align: center;
+      transition: transform 0.2s, background-color 0.2s;
     }
 
     .seat.available {
       background-color: #4CAF50; /* Green */
       color: white;
+    }
+
+    .seat.available:hover {
+      transform: scale(1.1);
+      background-color: #45a049;
     }
 
     .seat.booked {
@@ -68,18 +80,29 @@
     }
 
     .action-button {
-      width: calc(3 * 80px + 20px); /* Matches the width of three seats plus gaps */
-      height: 50px;
+      width: calc(3 * 150px + 40px); /* Matches the width of three seats plus gaps */
+      height: 60px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       background-color: #2196F3; /* Blue */
       color: white;
-      font-size: 16px;
+      font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .action-button:hover {
+      transform: scale(1.05);
+      background-color: #1976D2;
     }
 
     .reset-button {
       background-color: #FF5722; /* Orange */
+    }
+
+    .reset-button:hover {
+      background-color: #E64A19;
     }
 
     .action-button:disabled {
@@ -90,7 +113,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>Movie Theater Seating Chart</h1>
+    <h1>Enhanced Movie Theater Seating Chart</h1>
     <div id="message" class="message">Welcome! Please select a seat.</div>
     <div id="seating-chart" class="seating-chart">
       <div class="seat available" onclick="bookSeat(0, 0)">A1</div>
